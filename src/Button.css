@@ -1,0 +1,10 @@
+.button {
+  border: none;
+  background-color: tomato;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.button--large {
+  font-size: 1.7rem;
+}

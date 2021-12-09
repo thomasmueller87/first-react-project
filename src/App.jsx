@@ -3,7 +3,7 @@ import './App.css'
 import Headline from './Headline';
 import Box from './Box';
 import Button from './Button';
-import Todo from './Todo';
+import TodoList from './TodolList';
 import { useState } from 'react';
 
 
@@ -20,8 +20,7 @@ function App() {
 
 
 // todos.map --> todos kommt vom useState
-  const todoList = todos.map((todo, _index) => (
-    <Todo key={_index} title={todo.title} color={todo.color} />))
+ 
 
     function addTodo(event) {
       event.preventDefault(); // Verhindert Absenden des Formulars = neuladen der Seite
@@ -47,9 +46,7 @@ function App() {
         <Button text="Submit" />
         </form>
 
-      <ul>
-  {todoList}
-      </ul>
+      <TodoList todos={todos}/>
 
     <Box backcolor="red" text="Dies ist eine rote Testbox" />
 

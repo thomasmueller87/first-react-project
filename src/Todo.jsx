@@ -3,8 +3,7 @@ import './Todo.css';
 
 function Todo({color, title}) {
     const [isDone, setIsDone] = useState(false)
-    console.log(isDone)
-    
+        
     
     function markDone() {
         // Zustandsänderung, ausgelöst durch Checkbox

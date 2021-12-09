@@ -2,9 +2,11 @@
 import './App.css'
 import Headline from './Headline';
 import Box from './Box';
-import Button from './Button';
+import Form from './Form';
 import TodoList from './TodolList';
+import Button from './Button';
 import { useState } from 'react';
+
 
 
 function App() {
@@ -18,33 +20,15 @@ function App() {
   //Reload der Seite nach dem Addbutton
   const [todos, setTodos] = useState(initTodos)
 
+  function addTodo(todo) {  
+  setTodos([todo, ...todos])
+}
 
-// todos.map --> todos kommt vom useState
- 
 
-    function addTodo(event) {
-      event.preventDefault(); // Verhindert Absenden des Formulars = neuladen der Seite
-      
-      //Eventwurde im Formular ausgelöst, event.targ
-      const form = event.target;
-      const inputField = form.todo
-      const inputValue = inputField.value
-      
-      const newTodo = {
-        title: inputValue, color: 'gray'
-      }
-      const newTodos = [newTodo, ...todos] // Erstelle neuen Array
-      setTodos(newTodos)                   //Trigger für neu rendern, mit dem neuen Array
-    }
-
- 
   return (<div className="App">
     <Headline color="red" name="This is a classic todo List!" />
     
-      <form onSubmit={addTodo}>
-        <input type="text" name="todo" placeholder="Add a todo..." />
-        <Button text="Submit" />
-        </form>
+      <Form onAddTodo={addTodo}/>
 
       <TodoList todos={todos}/>
 

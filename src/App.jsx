@@ -15,14 +15,25 @@ function App() {
   const [todos, setTodos] = useState([])
 
   //Beim erstmaligen Laden der Seite die Todos aus dem LocalStorage holen
-  useEffect( () => {
-    const todosFromLocal = JSON.parse(localStorage.getItem('_TODOS')) ?? []
-    setTodos(todosFromLocal)
+  useEffect( function() {
+    loadFromLocal('NEWSAVE')
   }, [])
+
+    function loadFromLocal(getdata) {
+      const todosFromLocal = JSON.parse(localStorage.getItem(getdata)) ?? []
+      setTodos(todosFromLocal)
+    }
+
+
   // Wenn die Todos sich ändern, dann im LocalStorage speichern!
   useEffect(() => {
-    localStorage.setItem('_TODOS', JSON.stringify(todos))
+    saveToLocal('NEWSAVE', todos)
   }, [todos])
+
+    function saveToLocal(name, toSaveArray) {
+      // localStorage.setItem(senddata, JSON.stringify(todos))
+          localStorage.setItem(name, JSON.stringify(toSaveArray))
+    }
 
   function addTodo(todo) {  
   setTodos([todo, ...todos])

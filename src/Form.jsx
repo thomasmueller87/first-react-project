@@ -18,7 +18,7 @@ function Form({ onAddTodo }) {
 
         form.reset();
         inputField.focus();
-}
+        }
 
     return (
     <form onSubmit={handleFormSubmit}>

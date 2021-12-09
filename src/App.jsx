@@ -5,20 +5,24 @@ import Box from './Box';
 import Form from './Form';
 import TodoList from './TodolList';
 import Button from './Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
 function App() {
-    const initTodos = [
-    { title: 'Milch kaufen', color: 'yellow'},
-    { title: 'Eier kaufen', color: 'blue'},
-    { title: 'Zum Baumarkt fahren', color: 'green'},
-    { title: 'Tisch reparieren', color: 'red'},
-    { title: 'Wandern', color: 'red'},
-  ]
+    
   //Reload der Seite nach dem Addbutton
-  const [todos, setTodos] = useState(initTodos)
+  const [todos, setTodos] = useState([])
+
+  //Beim erstmaligen Laden der Seite die Todos aus dem LocalStorage holen
+  useEffect( () => {
+    const todosFromLocal = JSON.parse(localStorage.getItem('_TODOS')) ?? []
+    setTodos(todosFromLocal)
+  }, [])
+  // Wenn die Todos sich ändern, dann im LocalStorage speichern!
+  useEffect(() => {
+    localStorage.setItem('_TODOS', JSON.stringify(todos))
+  }, [todos])
 
   function addTodo(todo) {  
   setTodos([todo, ...todos])

@@ -1,8 +1,9 @@
 .button {
-  border: none;
-  background-color: tomato;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.303);
   font-size: 1.2rem;
-  padding: 0.5rem;
+  padding: 0rem 1rem;
 }
 
 .button--large {

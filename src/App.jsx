@@ -1,10 +1,10 @@
 
 import './App.css'
 import Headline from './Headline';
-import Box from './Box';
+
 import Form from './Form';
 import TodoList from './TodolList';
-import Button from './Button';
+
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -26,7 +26,7 @@ function App() {
         const allTodos = todosFromApi.slice(0, 9).map((todo) => ({
           title: todo.title,
           isDone: todo.completed,
-          color: "grey",
+          color: "var(--primary)",
         }));
 
         // Aktualisiere den State mit den Todos der API
@@ -63,16 +63,13 @@ function App() {
 
 
   return (<div className="App">
-    <Headline color="red" name="This is a classic todo List!" />
+    <Headline color="red" name="Have you forgotten?" />
     
       <Form onAddTodo={addTodo}/>
 
       <TodoList todos={todos}/>
 
-    <Box backcolor="red" text="Dies ist eine rote Testbox" />
 
-    <Button text="Drück mich!" />
-    <Button isLarge text="Ich bin der große Button!" />
   </div>)
 
 }

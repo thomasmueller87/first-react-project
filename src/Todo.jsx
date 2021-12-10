@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './Todo.css';
+import styled from 'styled-components';
+
 
 function Todo({color, title}) {
     const [isDone, setIsDone] = useState(false)
@@ -13,11 +15,20 @@ function Todo({color, title}) {
     
      const listClass = isDone ? 'finished' : '';
 
-    return <li className={listClass} style={{ color: color}}>
+
+
+    return <Listitem className={listClass} style={{ color: color}}>
         <label>
             <input type="checkbox" onChange={markDone} /> {title}
         </label>
-        </li>
+        </Listitem>
+    
+    
 }
+
+
+const Listitem = styled.li`
+list-style-type:none
+`
 
   export default Todo

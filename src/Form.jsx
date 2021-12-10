@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import Button from './Button'
 
 function Form({ onAddTodo }) {
@@ -21,11 +22,16 @@ function Form({ onAddTodo }) {
         }
 
     return (
-    <form onSubmit={handleFormSubmit}>
+    <Form_Style onSubmit={handleFormSubmit}>
     <input type="text" name="todo" placeholder="Add a todo..." />
     <Button text="Submit" />
-    </form>
+    </Form_Style>
     )
 }
+
+const Form_Style = styled.form`
+  padding-left: 0.7rem
+`
+
 
 export default Form

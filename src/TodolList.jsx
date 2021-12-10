@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import Todo from "./Todo";
 
 function TodoList({todos}) {
@@ -6,10 +7,14 @@ function TodoList({todos}) {
         <Todo key={_index} title={todo.title} color={todo.color} />))
 
 return (
-    <ul>
+    <Ulstyle>
     {todoList}
-        </ul>
+        </  Ulstyle>
 )
 }
+
+const Ulstyle = styled.ul`
+    padding-left: 0.7rem
+`
 
 export default TodoList;

@@ -6,6 +6,7 @@ import Form from './Form';
 import TodoList from './TodolList';
 import Button from './Button';
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 
 
@@ -25,7 +26,7 @@ function App() {
         const allTodos = todosFromApi.slice(0, 9).map((todo) => ({
           title: todo.title,
           isDone: todo.completed,
-          color: 'gray',
+          color: "grey",
         }));
 
         // Aktualisiere den State mit den Todos der API
